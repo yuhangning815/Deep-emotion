@@ -1,1 +1,6 @@
 env
+data
+train.csv
+train_small.csv
+deep_emotion-*.pt
+__pycache__

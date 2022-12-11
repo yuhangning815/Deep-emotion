@@ -22,7 +22,7 @@ parser.add_argument('-c', '--cam', type=bool, help='Test the model in real time 
 args = parser.parse_args()
 
 transformation = transforms.Compose([transforms.ToTensor(),transforms.Normalize((0.5,),(0.5,))])
-dataset = Plain_Dataset(csv_file=args.data+'/test.csv',img_dir = args.data+'/'+'test/',datatype = 'finaltest',transform = transformation)
+dataset = Plain_Dataset(csv_file=args.data+'/test.csv',img_dir = args.data+'/'+'test/',datatype = 'test',transform = transformation)
 test_loader =  DataLoader(dataset,batch_size=64,num_workers=0)
 
 net = Deep_Emotion()
@@ -40,6 +40,9 @@ if args.test_acc:
             outputs = net(data)
             pred = F.softmax(outputs,dim=1)
             classs = torch.argmax(pred,1)
+            with open("./results.txt", 'a') as result_file:
+                for result in classes:
+                    result_file.write(str(result)+'\n')
             wrong = torch.where(classs != labels,torch.tensor([1.]).cuda(),torch.tensor([0.]).cuda())
             acc = 1- (torch.sum(wrong) / 64)
             total.append(acc.item())

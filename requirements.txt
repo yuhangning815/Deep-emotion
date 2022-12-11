@@ -3,3 +3,5 @@ torchvision
 opencv-python
 tqdm
 pillow
+pandas
+matplotlib
