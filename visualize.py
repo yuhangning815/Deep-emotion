@@ -31,7 +31,8 @@ net.load_state_dict(torch.load(args.model))
 net.to(device)
 net.eval()
 #Model Evaluation on test data
-classes = ('Angry', 'Disgust', 'Fear', 'Happy','Sad', 'Surprise', 'Neutral')
+# classes = ('Angry', 'Disgust', 'Fear', 'Happy','Sad', 'Surprise', 'Neutral')
+classes = ('Angry', 'Happy','Sad', 'Neutral')
 total = []
 if args.test_acc:
     with torch.no_grad():
@@ -40,8 +41,9 @@ if args.test_acc:
             outputs = net(data)
             pred = F.softmax(outputs,dim=1)
             classs = torch.argmax(pred,1)
+            # Write the classification results into file
             with open("./results.txt", 'a') as result_file:
-                for result in classes:
+                for result in classs:
                     result_file.write(str(result)+'\n')
             wrong = torch.where(classs != labels,torch.tensor([1.]).cuda(),torch.tensor([0.]).cuda())
             acc = 1- (torch.sum(wrong) / 64)

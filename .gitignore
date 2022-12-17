@@ -3,4 +3,5 @@ data
 train.csv
 train_small.csv
 deep_emotion-*.pt
+README.txt
 __pycache__

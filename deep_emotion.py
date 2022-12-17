@@ -8,8 +8,9 @@ class Deep_Emotion(nn.Module):
         Deep_Emotion class contains the network architecture.
         '''
         super(Deep_Emotion,self).__init__()
-        self.conv0 = nn.Conv2d(1,10,3, padding='same')
-        self.conv1 = nn.Conv2d(10,10,3)
+        # Add a layer
+        #self.conv0 = nn.Conv2d(1,10,3, padding='same')
+        self.conv1 = nn.Conv2d(1,10,3)
         self.conv2 = nn.Conv2d(10,10,3)
         self.pool2 = nn.MaxPool2d(2,2)
 
@@ -50,11 +51,12 @@ class Deep_Emotion(nn.Module):
     def forward(self,input):
         theta = self.stn(input)
 
-        out = F.relu(self.conv0(input))
+        #out = F.relu(self.conv0(input))
         out = F.relu(self.conv1(input))
         out = self.conv2(out)
         out = F.relu(self.pool2(out))
 
+        out = F.dropout(out)
         out = F.relu(self.conv3(out))
         out = self.norm(self.conv4(out))
         out = F.relu(self.pool4(out))
