@@ -1,10 +1,9 @@
 ﻿Facial Emotion Recognition by Attentional Convolutional Network
 
-Zhixuan Chen Haochen Yang Yuhang Ning        University of Michigan University of Michigan University of Michigan
+Zhixuan Chen Haochen Yang Yuhang Ning        University of Michigan 
 
 shczx@umich.edu yanghc@umich.edu dlning@umich.edu
 
-1
 
 Abstract
 
@@ -83,6 +82,7 @@ Figure 4. Predictions
 In this paper, we reimplemented an attentional model for facial expression recognition. We managed to get a test accuracy relatively close to the accuracy mentioned in the original paper. We improved the performance of the exist- ing non-officialimplementation on GitHub by changing the sequential structure into parallel, adding one extra convolu- tional layer, and cleaning the dataset.
 
 Facial expression recognition is a technology that can be used in a variety of applications. For the future use of facial expression recognition technology, people need to be cau- tious of its use. The technology is powerful but also dan- gerous. Government handling this technique could use this power to guess the mentalities of people which would help them to do righteous works, but villians can also use this technology to harm the society. Therefore, people should still set their own standard of identifying a facial expres- sion instead of solely relying on this technology. The re- searchers should also be aware of the ethical aspects of the facial expression recognition technology. The database im- ages should achieve equality in race, gender, and emotion, and the technology should be inherently non-biased.
+
 
 6. Reference
 1. Jiabei Zeng, Shiguang Shan, and Xilin Chen. EECV 2018, “Facial Expression Recognition with Inconsistently Annotated Datasets”.
